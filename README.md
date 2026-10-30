@@ -4,7 +4,7 @@ Plataforma editorial estudiantil completamente frontend, construida con Next.js 
 
 ## Empezar
 
-Usar Node.js 22 LTS (22.13 o posterior) o 24 LTS y npm.
+Usar Node.js 22 LTS y npm. La versión está fijada a `22.x` en package.json y a `22` en .nvmrc.
 
 ```sh
 npm ci
@@ -23,8 +23,8 @@ npm start
 ## Desplegar en Vercel
 
 1. Subir este repositorio a tu propia cuenta Git y crear un proyecto en Vercel con ese repositorio.
-2. Mantener el directorio raíz del proyecto y seleccionar Next.js. La configuración incluida fija `npm run build` y el directorio de salida `out`.
-3. Usar Node.js 22 LTS o 24 LTS. No se necesitan variables de entorno ni servicios adicionales.
+2. Mantener el directorio raíz del proyecto y seleccionar Next.js. La configuración incluida fija `npm run build`. Dejar Output Directory sin override: el adaptador de Next.js utiliza `.next` y detecta automáticamente la exportación estática. No forzar `out` en Vercel.
+3. Usar Node.js 22 LTS (`22.x`). No se necesitan variables de entorno ni servicios adicionales.
 4. Desplegar y comprobar Inicio, una noticia, un evento y una ruta inexistente.
 
 No se ha creado un remoto ni un despliegue público. La configuración usa `output: 'export'`, `trailingSlash` y `generateStaticParams`; no hay Server Actions, middleware, cookies de servidor ni optimización remota de imágenes.
