@@ -22,12 +22,12 @@ npm start
 
 ## Desplegar en Vercel
 
-1. Subir este repositorio a tu propia cuenta Git y crear un proyecto en Vercel con ese repositorio.
-2. Mantener el directorio raíz del proyecto y seleccionar Next.js. La configuración incluida fija `npm run build`. Dejar Output Directory sin override: el adaptador de Next.js utiliza `.next` y detecta automáticamente la exportación estática. No forzar `out` en Vercel.
-3. Usar Node.js 22 LTS (`22.x`). No se necesitan variables de entorno ni servicios adicionales.
-4. Desplegar y comprobar Inicio, una noticia, un evento y una ruta inexistente.
+1. Subir los cambios del repositorio y crear un despliegue desde el commit nuevo.
+2. Usar Framework Preset **Other**, Build Command `npm run build` y Output Directory `out`. `vercel.json` establece estos valores explícitamente: `framework: null` equivale a Other y evita el adaptador Next.js de Vercel.
+3. Usar Node.js **22.x** en Project Settings para que coincida con package.json y no aparezca la advertencia de versiones distintas.
+4. No hacen falta variables de entorno. Comprobar Inicio, una noticia, un evento y una ruta inexistente.
 
-No se ha creado un remoto ni un despliegue público. La configuración usa `output: 'export'`, `trailingSlash` y `generateStaticParams`; no hay Server Actions, middleware, cookies de servidor ni optimización remota de imágenes.
+El código sigue siendo Next.js con `output: "export"`, `trailingSlash` y `generateStaticParams`. Vercel ejecuta la compilación y sirve únicamente los archivos de `out/`, sin funciones ni servidor de aplicación. No se debe mezclar el preset Next.js con Output Directory `out`: eso provoca la búsqueda incorrecta de `out/routes-manifest.json`.
 
 ## Contenido y arquitectura
 
