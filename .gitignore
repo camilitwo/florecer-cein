@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+work/
+test-results/
+playwright-report/
+.DS_Store
+*.tsbuildinfo
+outputs/
